@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run chatgpt00.py
+web: sh setup.sh && streamlit run chatgpt08.py
