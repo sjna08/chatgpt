@@ -183,44 +183,44 @@ def papago_translate(text):
 # 5개의 신문기사 URL 만 추출 합니다.
     top5_links = []
 
- for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
+for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
     top5_links.append(link.find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
     
     top5_links
 
 # 최종 wrapper
- def summarize_news(url):
-     page = crawl_page(url)
-     ummarized = summarize(page)
-     print('[원문 요약]')
-     print(summarized)
-     korean_translated = papago_translate(summarized)
-     print('\n[한글 요약]')
-     print(korean_translated)
-     return korean_translated
+def summarize_news(url):
+    page = crawl_page(url)
+    ummarized = summarize(page)
+    print('[원문 요약]')
+    print(summarized)
+    korean_translated = papago_translate(summarized)
+    print('\n[한글 요약]')
+    print(korean_translated)
+    return korean_translated
     
-     _ = summarize_news('https://www.investing.com/analysis/traders-send-wheat-prices-spiking-as-allied-tanks-aid-to-roll-into-ukraine-200634894')
+    _ = summarize_news('https://www.investing.com/analysis/traders-send-wheat-prices-spiking-as-allied-tanks-aid-to-roll-into-ukraine-200634894')
     
  # most popular news 의 신문기사 요소를 크롤링 합니다
-     top5 = set_chrome_driver(False)
+    top5 = set_chrome_driver(False)
  # URL 요청
-     top5.get('https://www.investing.com/news/most-popular-news')
+    top5.get('https://www.investing.com/news/most-popular-news')
  # 5개의 요소만 가져옵니다.
-     top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]
+    top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]
  
  # 5개의 신문기사 URL 만 추출 합니다.
-     top5_links = []
+    top5_links = []
 
-  for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
-     top5_links.append(link.find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
+ for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
+    top5_links.append(link.find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
     
-     top5_links
+    top5_links
  
  # 5개의 신문기사 링크에 대한 본문 크롤링+요약+번역 을 진행합니다.
-     top5_summarize = []
+    top5_summarize = []
 
-  for link in top5_links:
-     output = summarize_news(link)
-     top5_summarize.append(output)
-     print()
+ for link in top5_links:
+    output = summarize_news(link)
+    top5_summarize.append(output)
+    print()
  
