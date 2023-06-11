@@ -211,7 +211,7 @@ def summarize_news(url):
  # 5개의 신문기사 URL 만 추출 합니다.
     top5_links = []
 
- for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
+for link in top5.find_element(By.CLASS_NAME, 'largeTitle').find_elements(By.CLASS_NAME, 'js-article-item')[:5]:
     top5_links.append(link.find_element(By.CSS_SELECTOR, 'a').get_attribute('href'))
     
     top5_links
@@ -219,7 +219,7 @@ def summarize_news(url):
  # 5개의 신문기사 링크에 대한 본문 크롤링+요약+번역 을 진행합니다.
     top5_summarize = []
 
- for link in top5_links:
+for link in top5_links:
     output = summarize_news(link)
     top5_summarize.append(output)
     print()
