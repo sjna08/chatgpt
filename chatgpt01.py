@@ -64,11 +64,9 @@ author_profile: false
 prompt_example = f'''Write blog posts in markdown format.
 Write the theme of your blog as "<<TOPIC>>" and its category is "<<CATEGORY>>".
 Highlight, bold, or italicize important words or sentences.
-Please present your opinions so that we can see your point of view on China objectively, 
-not biased toward ideology. Since this article will be posted on the blog, please develop 
-the article logically and number the subheadings separately. Please write the sentence level 
-so that college students can read and understand it well.
-Please make the entire blog less than 20 minutes long.
+Please include the restaurant's address, menu recommendations and other helpful information(opening and closing hours) as a list style.
+Please make the entire blog less than 10 minutes long.
+The audience of this article is 20-40 years old.
 Create several hashtags and add them only at the end of the line.
 Add a summary of the entire article at the beginning of the blog post.'''
 
@@ -96,11 +94,11 @@ col1, co12 =  tab_single.columns(2)
 
 topic = col1.text_input(label='주제 입력', placeholder='주제를 입력해 주세요')
 col1.markdown('(예시)')
-col1.markdown('`Top 10 News`')
+col1.markdown('`Top 10 Restaurants you must visit when traveling to New York`')
 
 category = co12.text_input(label='카테고리 입력', placeholder='카테고리를 입력해 주세요')
 co12.markdown('(예시)')
-co12.markdown('`Economy`')
+co12.markdown('`Travel`')
 
 def generate_blog(apikey, topic, category, prompt):
     # apikey 셋팅
@@ -210,3 +208,4 @@ with tab_multiple:
                                                    file_name=zip_filename,
                                                    mime="application/zip"
     )
+
