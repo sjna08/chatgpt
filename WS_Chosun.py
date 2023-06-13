@@ -26,7 +26,7 @@ def scrape_chosun():
 
 # 스트림릿 앱을 실행합니다.
 def run():
-    st.title("조선일보 사설")
+    st.title("조선일보")
     scrape_chosun()
 
 if __name__ == '__main__':
