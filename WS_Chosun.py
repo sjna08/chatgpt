@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def scrape_chosun():
     # 조선일보 사설 메인 페이지 URL
-    url = 'https://www.chosun.com/opinion/editorial'
+    url = 'https://www.chosun.com/opinion'
 
     # 웹페이지를 가져옵니다.
     response = requests.get(url)
