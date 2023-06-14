@@ -15,9 +15,9 @@ def scrape_news(url, css_selector):
 
     # 각 기사의 제목과 링크를 출력합니다.
     for article in articles:
-        title = article.text
-        link = article['href']
-        if not link.startswith('http'):
+        title = article.text.strip()
+        link = article.get('href')
+        if link is not None and not link.startswith('http'):
             link = url + link
         st.write(f'Title: {title}, Link: {link}')
 
@@ -32,4 +32,6 @@ def run():
     scrape_news('https://www.mk.co.kr', '.tit a')
 
 if __name__ == '__main__':
+    run()
+
     run()
